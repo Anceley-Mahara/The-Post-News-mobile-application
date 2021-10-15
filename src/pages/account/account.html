@@ -1,0 +1,67 @@
+<!--
+  Generated template for the AccountPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar color="primary">
+    <button ion-button menuToggle >
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Account</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="outer-content">
+  <div padding-top text-center >
+    
+  
+    <ion-list inset *ngFor="let profile of profileList">
+     <img src="{{profile.captureDataUrl}}" alt="avatar"> 
+     
+       
+    
+        <input hidden [(ngModel)]="profile.role"/>
+     
+
+      <ion-item>
+        <ion-label floating>E-mail</ion-label>
+        <ion-input type="text"  [(ngModel)]="profile.email"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>First Name</ion-label>
+        <ion-input type="text"  [(ngModel)]="profile.firstname"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>Last Name</ion-label>
+        <ion-input type="text"  [(ngModel)]="profile.lastname"></ion-input>
+      </ion-item>
+      <ion-item>
+          <ion-label floating>Telephone</ion-label>
+          <ion-input type="text"  [(ngModel)]="profile.phone"></ion-input>
+        </ion-item>
+      <ion-item>
+        <ion-label floating>Address</ion-label>
+        <ion-input type="text" [(ngModel)]="profile.address"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label> Authorized</ion-label>
+        <!--<input type="text" placeholder="Authorized*" [(ngModel)]="authorized"/>-->
+      <ion-checkbox disabled color="danger" checked="true" [(ngModel)]="profile.authorized"></ion-checkbox>
+    </ion-item>
+    <ion-item>
+        <ion-label floating>User Type</ion-label>
+        <ion-input disabled type="text"  [(ngModel)]="profile.usertype"></ion-input>
+    </ion-item>      
+    </ion-list>
+  </div>
+
+  <!--<ion-list><ion-item *ngFor="let profile of profileList"> test profile
+{{profile.role}}
+  </ion-item></ion-list>-->
+</ion-content>
+<ion-footer>    
+<!--    <div><button ion-button full color="secondary" (click)="updateProfile(username, firstname,lastname,erf)">Submit/Update Advert</button>
+    </div>-->
+</ion-footer>

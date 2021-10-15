@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "484838883955",
+    "firebase_url": "https://taxi-63ca5.firebaseio.com",
+    "project_id": "taxi-63ca5",
+    "storage_bucket": "taxi-63ca5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:484838883955:android:dc5126bd56add773",
+        "android_client_info": {
+          "package_name": "com.thepost.ls"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "484838883955-tbb788muain751p1sbo1l5fggvktkt6o.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDKVK57OFNVWSmai2byU2ZEVUQbYZ9GnOo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "484838883955-tbb788muain751p1sbo1l5fggvktkt6o.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

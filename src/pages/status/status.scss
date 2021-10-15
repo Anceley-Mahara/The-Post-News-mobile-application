@@ -1,0 +1,38 @@
+page-status {
+
+    .flexContainer {
+        display: flex;
+      }
+    
+    .inputField {
+        flex: 5;
+      }
+    
+    .input{
+        font-size: 23px;
+    
+        position: absolute;
+        left: 5%;
+        top: 0px;
+        z-index: 500;
+      }
+      .positioning{
+        position: absolute;
+        right: 5%;
+        top: 100px;
+        z-index: 500;
+      }
+    
+      ion-icon {
+    
+        position:absolute;
+        top:60%;
+        left:12px;
+        margin-top:-14px;
+        z-index:2;
+      }
+
+      .alert-radio-label {
+        white-space: normal!important;
+    }
+}

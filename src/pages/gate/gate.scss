@@ -1,0 +1,54 @@
+page-gate {
+  .credit-card-input {
+  display:block;
+  position:relative;
+
+  input {
+    background: #E8F2F4;//#fcfcfc;
+    border:solid 1px #bfbfbf;
+    height:24px;
+    border-radius:6px;
+    width: 100%;
+    padding: 0 24px 0 10px;
+    margin-bottom:10px;
+    position:relative;
+    z-index:1;
+
+    @media screen and (min-width: 600px) {
+      height:35px;
+    }
+  }
+
+  textarea {
+    background:#fcfcfc;
+    border:solid 1px #bfbfbf;
+    height:72px;
+    border-radius:6px;
+    width: 100%;
+    padding: 0 24px 0 10px;
+    margin-bottom:10px;
+    position:relative;
+    z-index:1;
+
+    @media screen and (min-width: 600px) {
+      height:35px;
+    }
+  }
+
+  ion-icon {
+    position:absolute;
+    top:50%;
+    right:5px;
+    margin-top:-14px;
+    z-index:2;
+
+    &.mastercard-icon {
+      right:40px;
+      margin-top:-13px;
+    }
+    &.visa-icon {
+      margin-top:-10px;
+    }
+  }
+ }
+}

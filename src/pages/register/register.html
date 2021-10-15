@@ -1,0 +1,93 @@
+<!--
+  Generated template for the SignupPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+
+
+<ion-content class="login-page">
+    <div class="logo">
+      <img no-padding src="assets/imgs/ologo.png"/>
+    </div>
+  
+  
+      <ion-list>
+        <ion-item>
+          <ion-row text-wrap>
+           <p>Image 1: Select an image that will provide more information about your report</p> 
+          </ion-row>
+        <ion-row>			
+        <ion-col col-6>
+                <button ion-button  small (click)="capture()" type="camera"  round>
+                  <ion-icon name="md-camera" no-padding ></ion-icon> Camera
+                  </button>
+        </ion-col>
+        
+        <ion-col col-6>
+                <button ion-button  small (click)="selectImage()" color="clear"  round>
+                  <ion-icon name="md-image" no-padding ></ion-icon> Gallery
+                  </button>
+        </ion-col>
+            <ion-col col-12>
+            <ion-card>
+              <img [src]="captureDataUrl" *ngIf="captureDataUrl"/>
+          </ion-card>
+        </ion-col>             
+        </ion-row>
+        </ion-item>
+
+          <ion-item>
+              <ion-label stacked>First Name</ion-label>
+              <ion-input type="text" [(ngModel)]="firstname"></ion-input>
+            </ion-item>
+  
+            <ion-item>
+                <ion-label stacked>Last Name</ion-label>
+                <ion-input type="text" [(ngModel)]="lastname"></ion-input>
+              </ion-item>
+  
+    <ion-item>
+      <ion-label stacked>Enter your email address</ion-label>
+      <ion-input type="email" [(ngModel)]="email"></ion-input>
+    </ion-item>
+  
+    <ion-item>
+      <ion-label stacked>Password</ion-label>
+      <ion-input type="password"  [(ngModel)]="password"></ion-input>
+    </ion-item>
+  
+    <ion-item>
+      <ion-label stacked>Phone Number</ion-label>
+      <ion-input type="tel" [(ngModel)]="phone"></ion-input>
+    </ion-item>
+  
+    <ion-item>
+      <ion-label stacked>Address</ion-label>
+      <ion-input type="text" [(ngModel)]="address"></ion-input>
+    </ion-item>
+  
+  
+    </ion-list>
+    
+    <ion-item>
+        <ion-label>Signup as</ion-label>
+        <ion-select [(ngModel)]="role" >
+          <ion-option value="Guest">Guest</ion-option>
+          <ion-option value="Resident">Resident</ion-option>
+          <ion-option value="Management">Management</ion-option>
+          <ion-option value="Admin">Admin</ion-option>
+          <ion-option value="Tenant">Tenant</ion-option>
+          <ion-option value="Security Personnel">Security Personnel</ion-option>
+        </ion-select>
+      </ion-item>
+  
+    <div padding>
+        <button ion-button round [disabled]="!firstname || !lastname || !email || !password || !phone || !address || !role"  (click)="reg(firstname, lastname, email, password, phone, address, role, captureDataUrl)" type="submit" block>Sign Up</button>
+      </div>
+      <div> <button ion-button clear (click)="signin()" type="submit">Already have an account?</button></div>
+      <div class="logo">
+        <img no-padding src="assets/imgs/omeya.jpg">
+      </div>
+  </ion-content>
+  

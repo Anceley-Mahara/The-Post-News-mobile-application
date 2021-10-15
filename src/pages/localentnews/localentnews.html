@@ -1,0 +1,53 @@
+<!--
+  Generated template for the LocalentnewsPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar no-border-bottom color="primary">
+    <button ion-button menuToggle item-start>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Local Entertainment News</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+
+<ion-content no-padding  has-bouncing="true">
+  <ion-list    *ngFor="let item of shopListAsync | async">
+   <ion-card>
+     <ion-item (click)="selectShoppingItem(item)">   
+       
+                 <img class="img" src={{item.payload.val().leadimg}}/>
+ 
+ 
+       
+         
+       <h2 text-wrap [innerHTML]="item.payload.val().headline"></h2>
+       <h4>{{item.payload.val().issuedate | date:'yyyy-MM-dd HH:mm:ss'}}</h4>
+     <p text-wrap [innerHTML]="item.payload.val().exerpt"></p>
+      Author: <p [innerHTML]="item.payload.val().author"></p>
+      
+     </ion-item>
+     <button ion-button (click)="commentItem(item)" ion-icon="chatboxes">Comment</button>
+   </ion-card>
+ </ion-list>
+ </ion-content>
+ <ion-footer  class="dynamic-height" *ngFor="let slider of advertsList">
+   <ion-toolbar>
+   <ion-slides class="slid" autoplay="3000" loop="true" speed="1000">
+ 
+   <ion-slide>
+         <img class="img" src={{slider.url}}/>
+     </ion-slide>
+ 
+ </ion-slides>
+ </ion-toolbar>
+  
+ </ion-footer>  
+ <ion-searchbar color="primary" [(ngModel)]="searchKey" (ionInput)="onInput($event)" (ionCancel)="onCancel($event)">
+ </ion-searchbar>

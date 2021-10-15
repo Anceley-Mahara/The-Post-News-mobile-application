@@ -1,0 +1,58 @@
+<!--
+  Generated template for the EditShoppingItemPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+    <ion-navbar color="primary">
+      <ion-title>{{shoppingItem.firstname}}</ion-title>
+    </ion-navbar>
+  
+  </ion-header>
+  
+  
+  <ion-content padding>
+    <ion-item>
+      <ion-label floating>First Name</ion-label>
+      <ion-input disabled type="text" [(ngModel)]="shoppingItem.firstname"></ion-input>
+    </ion-item>
+    
+    <ion-item>
+      <ion-label floating>Last Name</ion-label>
+      <ion-input disabled type="text" [(ngModel)]="shoppingItem.lastname"></ion-input>
+    </ion-item>
+
+    <ion-item>
+        <ion-label floating>E-mail</ion-label>
+        <ion-input disabled type="text" [(ngModel)]="shoppingItem.email"></ion-input>
+      </ion-item>
+
+      <ion-item>
+          <ion-label floating>User Role</ion-label>
+          <ion-input disabled type="text" [(ngModel)]="shoppingItem.role"></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label floating>Phone Number</ion-label>
+            <ion-input disabled type="text" [(ngModel)]="shoppingItem.phone"></ion-input>
+          </ion-item>
+
+          <ion-item>
+              <ion-label floating>Address</ion-label>
+              <ion-input disabled type="text" [(ngModel)]="shoppingItem.address"></ion-input>
+            </ion-item>
+    <ion-item>
+        <ion-label floating>Edit Access</ion-label>
+    <ion-select [(ngModel)]="shoppingItem.access">
+        <ion-option value="denied">Denied</ion-option>
+        <ion-option value="granted">Granted</ion-option>
+        <ion-option value="suspended">Suspended</ion-option>
+        </ion-select>
+    </ion-item>
+
+    <button color="danger" ion-button round (click)="editShoppingItem(shoppingItem)">Edit User Access</button>
+    
+  </ion-content>
+  

@@ -1,0 +1,217 @@
+<!--
+  Generated template for the ReportsPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="primary">
+    <button ion-button menuToggle item-start>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Submit A Report</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+
+  <div class="logo">
+    <img no-padding src="assets/imgs/ologo.png"/>
+  </div>
+  <br>
+  <br>
+<ion-item>
+  <ion-row text-wrap>
+   <p>Featured Image: Select an image that will provide more information about your report</p> 
+  </ion-row>
+<ion-row>			
+<ion-col col-6>
+        <button ion-button  small (click)="capture()" type="camera"  round>
+          <ion-icon name="md-camera" no-padding ></ion-icon> Camera
+          </button>
+</ion-col>
+
+<ion-col col-6>
+				<button ion-button  small (click)="selectImage()" color="clear"  round>
+          <ion-icon name="md-image" no-padding ></ion-icon> Gallery
+          </button>
+</ion-col>
+    <ion-col col-12>
+    <ion-card>
+      <img [src]="captureDataUrl" *ngIf="captureDataUrl"/>
+  </ion-card>
+</ion-col>             
+</ion-row>
+</ion-item>
+
+
+<ion-item>
+    <ion-row text-wrap>
+        <p>Additional Image: Select an image that will provide additional information about your report</p> 
+       </ion-row>
+       <ion-row>			
+          <ion-col col-6>
+                  <button ion-button  small (click)="capture2()" type="camera"  round>
+                    <ion-icon name="md-camera" no-padding ></ion-icon> Camera
+                    </button>
+          </ion-col>
+          
+          <ion-col col-6>
+                  <button ion-button  small (click)="selectImage2()" color="clear"  round>
+                    <ion-icon name="md-image" no-padding ></ion-icon> Gallery
+                    </button>
+          </ion-col>
+              <ion-col col-12>
+              <ion-card>
+                <img [src]="captureDataUrl2" *ngIf="captureDataUrl2"/>
+            </ion-card>
+          </ion-col>             
+          </ion-row>
+        </ion-item>
+
+
+<!--
+<ion-item>
+    <ion-row text-wrap>
+        <p>Image 3: Select an image that will provide more information about your report</p> 
+       </ion-row>
+       <ion-row>			
+          <ion-col col-6>
+                  <button ion-button  small (click)="capture3()" type="camera"  round>
+                    <ion-icon name="md-camera" no-padding ></ion-icon> Camera
+                    </button>
+          </ion-col>
+          
+          <ion-col col-6>
+                  <button ion-button  small (click)="selectImage3()" color="clear"  round>
+                    <ion-icon name="md-image" no-padding ></ion-icon> Gallery
+                    </button>
+          </ion-col>
+              <ion-col col-12>
+              <ion-card>
+                <img [src]="captureDataUrl3" *ngIf="captureDataUrl3"/>
+            </ion-card>
+          </ion-col>             
+          </ion-row>
+        </ion-item>
+
+
+<ion-item>
+    <ion-row text-wrap>
+        <p>Image 4: Select an image that will provide more information about your report</p> 
+       </ion-row>
+       <ion-row>			
+          <ion-col col-6>
+                  <button ion-button  small (click)="capture4()" type="camera"  round>
+                    <ion-icon name="md-camera" no-padding ></ion-icon> Camera
+                    </button>
+          </ion-col>
+          
+          <ion-col col-6>
+                  <button ion-button  small (click)="selectImage4()" color="clear"  round>
+                    <ion-icon name="md-image" no-padding ></ion-icon> Gallery
+                    </button>
+          </ion-col>
+              <ion-col col-12>
+              <ion-card>
+                <img [src]="captureDataUrl4" *ngIf="captureDataUrl4"/>
+            </ion-card>
+          </ion-col>             
+          </ion-row>
+        </ion-item>
+-->
+
+<ion-list no-lines>
+  <ion-label padding stacked color="primary">Headline</ion-label>
+<!--  <ion-item>
+    <ion-textarea padding [(ngModel)]="report" name="supportQuestion" #supportQuestion="ngModel" rows="6" required></ion-textarea>
+  </ion-item>
+-->
+  <div style="display:flex">
+    <ion-item id="rounded">
+
+
+       <textarea wrap-text  cols="28" style="width:auto; font-family:monospace;" placeholder="Type in a brief description, max 100 characters" #myInput id="myInput" rows="2" maxLength="100" ng-trim="false"  (input)="checkLength(headline)" [(ngModel)]="headline"></textarea>
+       <p>{{lengthLeft}} left</p>
+    </ion-item>
+    </div>
+</ion-list>
+
+<ion-list no-lines>
+  <ion-label padding stacked color="primary">Exerpt</ion-label>
+<!--  <ion-item>
+    <ion-textarea padding [(ngModel)]="report" name="supportQuestion" #supportQuestion="ngModel" rows="6" required></ion-textarea>
+  </ion-item>
+-->
+  <div style="display:flex">
+    <ion-item id="rounded">
+
+
+       <textarea wrap-text  cols="28" style="width:auto; font-family:monospace;" placeholder="Type in a brief description, max 150 characters" #myInput id="myInput" rows="3" maxLength="150" ng-trim="false"  (input)="checkLength(exerpt)" [(ngModel)]="exerpt"></textarea>
+       <p>{{lengthLeft}} left</p>
+    </ion-item>
+    </div>
+</ion-list>
+
+<ion-list no-lines>
+  <ion-label padding stacked color="primary">Story</ion-label>
+<!--  <ion-item>
+    <ion-textarea padding [(ngModel)]="report" name="supportQuestion" #supportQuestion="ngModel" rows="6" required></ion-textarea>
+  </ion-item>
+-->
+  <div style="display:flex">
+    <ion-item id="rounded">
+
+
+       <textarea wrap-text  cols="28" style="width:auto; font-family:monospace;" placeholder="Type in a brief description, max 500 characters" #myInput id="myInput" rows="6" maxLength="500" ng-trim="false"  (input)="checkLength(story)" [(ngModel)]="story"></textarea>
+       <p>{{lengthLeft}} left</p>
+    </ion-item>
+    </div>
+</ion-list>
+
+  <ion-item>
+      <ion-label>News Label</ion-label>
+      <ion-select [(ngModel)]="label" >
+        <ion-option value="LatestNews">Latest News</ion-option>
+        <ion-option value="LocalNews">Local News</ion-option>
+        <ion-option value="RegionalNews">Regional News</ion-option>
+        <ion-option value="InternationalNews">International News</ion-option>
+        <ion-option value="LatestEntertainment">Latest Entertainment</ion-option>
+        <ion-option value="LocalEntertainment">Local Entertainment</ion-option>
+        <ion-option value="InternationalEntertainment">International Entertainment</ion-option>
+        <ion-option value="Whatson">Whats On</ion-option>
+        <ion-option value="LatestSports">Latest Sports</ion-option>
+        <ion-option value="LocalSports">Local Sports</ion-option>
+        <ion-option value="InternationalSports">International Sports</ion-option>
+        </ion-select>
+    </ion-item>
+
+
+ <!--   <ion-card>
+    <ion-row>
+      Please make my matter
+      <ion-col>
+    <ion-item>
+      <ion-label>Private</ion-label>
+      <ion-checkbox color="dark" checked="false"></ion-checkbox>
+    </ion-item>
+  </ion-col>
+
+  <ion-col>
+    <ion-item>
+      <ion-label>Public</ion-label>
+      <ion-checkbox color="dark" checked="true"></ion-checkbox>
+    </ion-item>
+  </ion-col>
+  </ion-row>
+  </ion-card>-->
+
+  <div padding>
+    <button ion-button block round type="submit" [disabled]="!headline || !exerpt || !story || !label" (click)="submitreport(headline, exerpt,story, label)">Submit</button>
+
+  </div>
+
+</ion-content>

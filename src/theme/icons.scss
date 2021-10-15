@@ -1,0 +1,50 @@
+ion-icon {
+
+    &[class*="custom-"] {
+ 
+       mask-size: contain;
+ 
+       mask-position: 50% 50%;
+ 
+       mask-repeat: no-repeat;
+ 
+       background: currentColor;
+ 
+       width: 1em;
+ 
+       height: 1em;
+ 
+    }
+ 
+    &[class*="custom-africa-icon"] {
+ 
+       mask-image: url(/assets/icon/africa-outline.svg);
+ 
+    }
+
+    &[class*="custom-cheers-icon"] {
+ 
+        mask-image: url(/assets/icon/wine.svg);
+  
+     }
+
+     &[class*="custom-earth-icon"] {
+ 
+        mask-image: url(/assets/icon/earth-globe.svg);
+  
+     }
+ 
+    &[class*="custom-ls-icon"] {
+ 
+       mask-image: url(/assets/icon/ls.svg);
+ 
+    }
+
+     
+    &[class*="custom-news-icon"] {
+ 
+      mask-image: url(/assets/icon/newspaper.svg);
+
+   }
+ 
+ }

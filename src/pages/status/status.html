@@ -1,0 +1,101 @@
+<!--
+  Generated template for the StatusPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="primary">
+    <button ion-button menuToggle item-start>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Status Update</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+
+
+  <ion-list *ngFor="let item of allList">
+  <ion-card>
+    <div>
+
+       
+    <ion-slides pager>
+			<ion-slide>
+				<img src="{{item.captureDataUrl}}">
+			</ion-slide>
+
+			<ion-slide>
+				<img src="{{item.captureDataUrl2}}">
+			</ion-slide>
+
+			<ion-slide>
+				  <img src="{{item.captureDataUrl3}}">
+      </ion-slide>
+      
+      <ion-slide>
+				  <img src="{{item.captureDataUrl4}}">
+			</ion-slide>
+		</ion-slides>
+   </div>
+
+   <div>
+     <p>{{item.report}}</p>
+     <p>{{item.submitdate | date:'yyyy-MM-dd HH:mm:ss'}}</p>
+     <ion-item>
+    </ion-item>
+     
+   </div>
+<!--
+    <ion-item>
+
+        <ion-label>Issues Status</ion-label>
+        <ion-select *ngFor="let item of adminArray" [(ngModel)]="item.status" (ionInput)="onInput($event)">
+          <ion-option value="Sent Someone to Investigate">Sent Someone to Investigate</ion-option>
+          <ion-option value="Sent Someone to fix">Sent Someone to fix</ion-option>
+          <ion-option value="Submit Report">Submit Report</ion-option>
+          <ion-option value="Escalation to management">Escalate to Management</ion-option>
+          <ion-option value="Issue closed">Close Issue</ion-option>
+        </ion-select>
+      </ion-item>
+-->
+
+
+
+      <ion-list radio-group *ngFor="let item of resolved"  [(ngModel)]="item.status">
+    
+        <ion-item>
+          <ion-label>{{item}}</ion-label>
+          <ion-radio value="{{item}}"></ion-radio>
+        </ion-item>
+    
+      </ion-list>
+
+      <ion-list radio-group *ngFor="let item of resolved" >
+          <ion-item>
+            <ion-label>Status</ion-label>
+            <ion-select [(ngModel)]="item.status">
+              <ion-option value="{{item}}">{{item}}</ion-option>
+            </ion-select>
+          </ion-item>
+        </ion-list>
+
+
+          <ion-item>
+            <ion-label stacked color="primary">Enter your comment below</ion-label>
+            <ion-textarea [(ngModel)]="item.comment" name="supportQuestion" #supportQuestion="ngModel" rows="2" required></ion-textarea>
+          </ion-item>
+
+
+        <div padding>
+          <button ion-button block type="submit" (click)="updateFunction(item.submitdate, item.status, item.comment)">Submit</button>
+        </div>
+      
+  </ion-card>
+</ion-list>
+
+</ion-content>

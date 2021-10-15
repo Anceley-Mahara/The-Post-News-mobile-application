@@ -1,0 +1,7 @@
+{
+  "name": "fbcrud",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}

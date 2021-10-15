@@ -1,0 +1,211 @@
+<!--
+  Generated template for the ShoppingListPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar no-border-bottom color="primary">
+    <button ion-button menuToggle item-start>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>
+      News
+    </ion-title>
+  </ion-navbar>
+
+  <ion-toolbar no-border-top>
+    <ion-segment [(ngModel)]="reports">
+      <ion-segment-button value="all">
+        All {{notificationcount}}
+      </ion-segment-button>
+      <ion-segment-button value="open">
+        Open <span>{{(shopListOpenAsync | async)?.length}}</span>
+      </ion-segment-button>
+      <ion-segment-button value="my">
+        Prog. <span>{{(shopListMyAsync | async)?.length}} + {{(shopListBackAsync | async)?.length}}</span>
+      </ion-segment-button>
+      <ion-segment-button value="closed">
+        Closed <span>{{(shopListClosedAsync | async)?.length}}</span>
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+
+</ion-header>
+
+<ion-content>
+
+    <ion-list inset *ngFor="let profile of profileList">
+        <input hidden [(ngModel)]="profile.authorized"/>
+</ion-list>
+
+ <div>
+  <div [ngSwitch]="reports">
+
+   <ion-list *ngSwitchCase="'all'"> 
+
+    
+
+    <ion-list no-padding  *ngFor="let item of (shopListAsync | async)?.slice().reverse(); let odd = odd">
+    <ion-grid >  
+      
+      <ion-row>
+        <ion-col col-2  (click)="selectShoppingItem(item)">
+
+      <ion-thumbnail
+       item-start>
+        <img src="{{item.payload.val().captureDataUrl}}" (click)="selectShoppingItem(item)">
+      </ion-thumbnail>
+    </ion-col>
+      <ion-col col-8 (click)="selectShoppingItem(item)">
+        <ion-item  >
+            <h2>{{item.payload.val().type}}</h2>
+      <h4>{{item.payload.val().submitdate | date:'yyyy-MM-dd HH:mm:ss'}}</h4>
+      <p text-wrap>{{item.payload.val().report}}</p>
+      <p text-wrap><strong>Posted by: {{item.payload.val().user}}</strong></p>
+      <p>Status: {{item.payload.val().status}}</p>
+      <p>{{item.payload.val().id}}</p>
+    </ion-item>
+ </ion-col>
+   <ion-col col-2>
+    <button ion-button clear item-end (click)="itemTapped(item)">View</button>
+  </ion-col>
+</ion-row>
+
+  </ion-grid>  
+</ion-list>
+   </ion-list>
+  
+
+
+  <ion-list *ngSwitchCase="'open'">
+    <ion-list  no-padding    *ngFor="let item of shopListOpenAsync | async">
+        <ion-grid  >  
+            <ion-row>
+              <ion-col col-2  (click)="selectShoppingItem(item)">
+      
+            <ion-thumbnail
+             item-start>
+              <img src="{{item.payload.val().captureDataUrl}}" (click)="selectShoppingItem(item)">
+            </ion-thumbnail>
+          </ion-col>
+            <ion-col col-8 (click)="selectShoppingItem(item)">
+              <ion-item >
+                  <h2>{{item.payload.val().type}}</h2>
+            <h4>{{item.payload.val().submitdate | date:'yyyy-MM-dd HH:mm:ss'}}</h4>
+            <p text-wrap>{{item.payload.val().report}}</p>
+            <p text-wrap><strong>Posted by: {{item.payload.val().user}}</strong></p>
+            <p>Status: {{item.payload.val().status}}</p>
+            <p>{{item.payload.val().id}}</p>
+          </ion-item>
+       </ion-col>
+         <ion-col col-2>
+          <button ion-button clear item-end (click)="itemTapped(item)">View</button>
+        </ion-col>
+      </ion-row>
+        </ion-grid>  
+  </ion-list>
+</ion-list>
+
+<ion-list *ngSwitchCase="'closed'">
+  <ion-list  no-padding    *ngFor="let item of shopListClosedAsync | async">
+      <ion-grid>  
+          <ion-row>
+            <ion-col col-2  (click)="selectShoppingItem(item)">
+    
+          <ion-thumbnail
+           item-start>
+            <img src="{{item.payload.val().captureDataUrl}}" (click)="selectShoppingItem(item)">
+          </ion-thumbnail>
+        </ion-col>
+          <ion-col col-8 (click)="selectShoppingItem(item)">
+            <ion-item no-padding  >
+                <h2>{{item.payload.val().type}}</h2>
+          <h4>{{item.payload.val().submitdate | date:'yyyy-MM-dd HH:mm:ss'}}</h4>
+          <p text-wrap>{{item.payload.val().report}}</p>
+          <p text-wrap><strong>Posted by: {{item.payload.val().user}}</strong></p>
+          <p>Status: {{item.payload.val().status}}</p>
+          <p>{{item.payload.val().id}}</p>
+        </ion-item>
+     </ion-col>
+       <ion-col col-2>
+        <button ion-button clear item-end (click)="itemTapped(item)">View</button>
+      </ion-col>
+    </ion-row>
+      </ion-grid>  
+</ion-list>
+
+</ion-list>
+
+
+<ion-list *ngSwitchCase="'my'">
+    <ion-list  no-padding    *ngFor="let item of (shopListMyAsync | async)?.slice().reverse()">
+        <ion-grid>  
+            <ion-row>
+              <ion-col col-2  (click)="selectShoppingItem(item)">
+      
+            <ion-thumbnail
+             item-start>
+              <img src="{{item.payload.val().captureDataUrl}}" (click)="selectShoppingItem(item)">
+            </ion-thumbnail>
+          </ion-col>
+            <ion-col col-8 (click)="selectShoppingItem(item)">
+              <ion-item no-padding  >
+                  <h2>{{item.payload.val().type}}</h2>
+            <h4>{{item.payload.val().submitdate | date:'yyyy-MM-dd HH:mm:ss'}}</h4>
+            <p text-wrap>{{item.payload.val().report}}</p>
+            <p text-wrap><strong>Posted by: {{item.payload.val().user}}</strong></p>
+            <p>Status: {{item.payload.val().status}}</p>
+            <p>{{item.payload.val().id}}</p>
+          </ion-item>
+       </ion-col>
+         <ion-col col-2>
+          <button ion-button clear item-end (click)="itemTapped(item)">View</button>
+        </ion-col>
+      </ion-row>
+        </ion-grid>  
+  </ion-list>
+
+  
+<ion-list  no-padding    *ngFor="let item of shopListBackAsync | async">
+    <ion-grid>  
+        <ion-row>
+          <ion-col col-2  (click)="selectShoppingItem(item)">
+  
+        <ion-thumbnail
+         item-start>
+          <img src="{{item.payload.val().captureDataUrl}}" (click)="selectShoppingItem(item)">
+        </ion-thumbnail>
+      </ion-col>
+        <ion-col col-8 (click)="selectShoppingItem(item)">
+          <ion-item no-padding  >
+              <h2>{{item.payload.val().type}}</h2>
+        <h4>{{item.payload.val().submitdate | date:'yyyy-MM-dd HH:mm:ss'}}</h4>
+        <p text-wrap>{{item.payload.val().report}}</p>
+        <p text-wrap><strong>Posted by: {{item.payload.val().user}}</strong></p>
+        <p>Status: {{item.payload.val().status}}</p>
+        <p>{{item.payload.val().id}}</p>
+      </ion-item>
+   </ion-col>
+     <ion-col col-2>
+      <button ion-button clear item-end (click)="itemTapped(item)">View</button>
+    </ion-col>
+  </ion-row>
+    </ion-grid>  
+</ion-list>
+  </ion-list>
+
+</div>
+</div>
+<!--
+<ion-fab right bottom>
+    <button ion-fab color="danger"><ion-icon name="add"></ion-icon></button>
+    <ion-fab-list side="left">
+      <button ion-fab><ion-icon name="logo-facebook"></ion-icon></button>
+      <button ion-fab><ion-icon name="logo-twitter"></ion-icon></button>
+      <button ion-fab><ion-icon name="logo-vimeo"></ion-icon></button>
+      <button ion-fab><ion-icon name="logo-googleplus"></ion-icon></button>
+    </ion-fab-list>
+  </ion-fab>
+-->
+</ion-content>

@@ -1,0 +1,119 @@
+<ion-split-pane>
+
+    <!-- logged out menu -->
+    <ion-menu id="loggedOutMenu" [content]="content">
+  
+      <ion-header class="img" >
+        <img no-padding src="assets/imgs/omeya.jpg"/>
+        <ion-list-header no-margin color="inner_arc" text-center>
+            Currently Registered as:
+            <p>{{email}}</p> 
+           
+            <span ion-text class="fw600"><b>The Post Lesotho</b></span>
+        </ion-list-header>
+      </ion-header>
+  
+  
+  
+      <ion-content>
+  
+        <ion-list>
+          <ion-list-header>
+            News
+          </ion-list-header>
+          <button ion-item menuClose *ngFor="let p of newsPages" (click)="openPage(p)">
+            <ion-icon item-start [name]="p.icon" [color]="isActive(p)"></ion-icon>
+            {{p.title}}
+          </button>
+        </ion-list>
+
+        <ion-list>
+          <ion-list-header>
+            Entertainment
+          </ion-list-header>
+          <button ion-item menuClose *ngFor="let p of entertainmentPages" (click)="openPage(p)">
+            <ion-icon item-start [name]="p.icon" [color]="isActive(p)"></ion-icon>
+            {{p.title}}
+          </button>
+        </ion-list>
+
+        <ion-list>
+          <ion-list-header>
+            Sport
+          </ion-list-header>
+          <button ion-item menuClose *ngFor="let p of sportsPages" (click)="openPage(p)">
+            <ion-icon item-start [name]="p.icon" [color]="isActive(p)"></ion-icon>
+            {{p.title}}
+          </button>
+        </ion-list>
+
+        <ion-list>
+          <ion-list-header>
+            Opinion
+          </ion-list-header>
+          <button ion-item menuClose *ngFor="let p of opinionPages" (click)="openPage(p)">
+            <ion-icon item-start [name]="p.icon" [color]="isActive(p)"></ion-icon>
+            {{p.title}}
+          </button>
+        </ion-list>
+
+        <ion-list>
+          <ion-list-header>
+            Classifieds
+          </ion-list-header>
+          <button ion-item menuClose *ngFor="let p of classifiedPages" (click)="openPage(p)">
+            <ion-icon item-start [name]="p.icon" [color]="isActive(p)"></ion-icon>
+            {{p.title}}
+          </button>
+        </ion-list>
+
+        <ion-list>
+          <ion-list-header>
+            Administration
+          </ion-list-header>
+          <button ion-item menuClose *ngFor="let p of adminPages" (click)="openPage(p)">
+            <ion-icon item-start [name]="p.icon" [color]="isActive(p)"></ion-icon>
+            {{p.title}}
+          </button>
+        </ion-list>
+  
+        <ion-list>
+          <ion-list-header>
+            Access
+          </ion-list-header>
+          <button ion-item menuClose *ngFor="let p of accessPages" (click)="openPage(p)">
+            <ion-icon item-start [name]="p.icon" [color]="isActive(p)"></ion-icon>
+            {{p.title}}
+          </button>
+        </ion-list>
+  
+        <ion-list>
+          <ion-list-header>
+            Archives
+          </ion-list-header>
+          <button ion-item menuClose *ngFor="let p of accessPages" (click)="openPage(p)">
+            <ion-icon item-start [name]="p.icon" [color]="isActive(p)"></ion-icon>
+            {{p.title}}
+          </button>
+        </ion-list>
+  
+        <ion-list>
+          <ion-list-header>
+            Settings
+          </ion-list-header>
+          <button ion-item menuClose *ngFor="let p of loggedOutPages" (click)="openPage(p)">
+            <ion-icon item-start [name]="p.icon" [color]="isActive(p)"></ion-icon>
+            {{p.title}}
+          </button>
+        </ion-list>
+        <div><img no-padding src="assets/imgs/ologo.png"></div>
+  
+      </ion-content>
+  
+    </ion-menu>
+  
+    <!-- main navigation -->
+    <ion-nav [root]="rootPage" #content swipeBackEnabled="false" main name="app"></ion-nav>
+  
+  </ion-split-pane>
+  
